@@ -41,16 +41,16 @@ public class Planary extends MIDlet implements CommandListener {
     private int Summa;
     private String TextOperation;
 
-    String[] strLargeMonths = {"января", "февраля", "марта", "апреля", "мая", "июня",
-        "июля", "августа", "сентября", "октября", "ноября", "декабря"
+    String[] strLargeMonths = {"СЏРЅРІР°СЂСЏ", "С„РµРІСЂР°Р»СЏ", "РјР°СЂС‚Р°", "Р°РїСЂРµР»СЏ", "РјР°СЏ", "РёСЋРЅСЏ",
+        "РёСЋР»СЏ", "Р°РІРіСѓСЃС‚Р°", "СЃРµРЅС‚СЏР±СЂСЏ", "РѕРєС‚СЏР±СЂСЏ", "РЅРѕСЏР±СЂСЏ", "РґРµРєР°Р±СЂСЏ"
     };
-    String[] strMonths = {"янв", "фев", "март", "апр", "мая", "июн",
-        "июл", "авг", "сент", "окт", "нояб", "дек"
+    String[] strMonths = {"СЏРЅРІ", "С„РµРІ", "РјР°СЂС‚", "Р°РїСЂ", "РјР°СЏ", "РёСЋРЅ",
+        "РёСЋР»", "Р°РІРі", "СЃРµРЅС‚", "РѕРєС‚", "РЅРѕСЏР±", "РґРµРє"
     };
-    String[] strLargeDayOfWeek = {"воскресенье", "понедельник", "вторник", "среда",
-        "четверг", "пятница", "суббота"
+    String[] strLargeDayOfWeek = {"РІРѕСЃРєСЂРµСЃРµРЅСЊРµ", "РїРѕРЅРµРґРµР»СЊРЅРёРє", "РІС‚РѕСЂРЅРёРє", "СЃСЂРµРґР°",
+        "С‡РµС‚РІРµСЂРі", "РїСЏС‚РЅРёС†Р°", "СЃСѓР±Р±РѕС‚Р°"
     };
-    String[] strDayOfWeek = {"вскр", "пнд", "втрн", "срд", "чтв", "птн", "сбт"};
+    String[] strDayOfWeek = {"РІСЃРєСЂ", "РїРЅРґ", "РІС‚СЂРЅ", "СЃСЂРґ", "С‡С‚РІ", "РїС‚РЅ", "СЃР±С‚"};
 
     public Planary() {
         PSH = new RecordStoreHelper();
@@ -66,9 +66,9 @@ public class Planary extends MIDlet implements CommandListener {
         int w = clCurrent.get(Calendar.DAY_OF_WEEK) - 1;
 
         String strCurDate = new String(Integer.toString(d) + " " +
-                strMonths[m] + " " + Integer.toString(y) + " г. (" + strDayOfWeek[w] + ")");
-        String[] strMenuList = {"Мой кошелёк", "Сегодня", "Неделя", "Хаос", "Мои цели", "Архив успехов"};
-        String[] MoneyMenuList = {"Добавить", "Изменить", "Удалить", "Баланс"};
+                strMonths[m] + " " + Integer.toString(y) + " Рі. (" + strDayOfWeek[w] + ")");
+        String[] strMenuList = {"РњРѕР№ РєРѕС€РµР»С‘Рє", "РЎРµРіРѕРґРЅСЏ", "РќРµРґРµР»СЏ", "РҐР°РѕСЃ", "РњРѕРё С†РµР»Рё", "РђСЂС…РёРІ СѓСЃРїРµС…РѕРІ"};
+        String[] MoneyMenuList = {"Р”РѕР±Р°РІРёС‚СЊ", "РР·РјРµРЅРёС‚СЊ", "РЈРґР°Р»РёС‚СЊ", "Р‘Р°Р»Р°РЅСЃ"};
 
         try {
             Image imgList[] = {Image.createImage("/fiol.png"), Image.createImage("/red.png"),
@@ -90,25 +90,25 @@ public class Planary extends MIDlet implements CommandListener {
 
         frmMain.setTitle(strCurDate);
 
-        cmdSelect = new Command("Выбор", Command.ITEM, 0);
+        cmdSelect = new Command("Р’С‹Р±РѕСЂ", Command.ITEM, 0);
         frmMain.addCommand(cmdSelect);
 
-        cmdExit = new Command("Выход", Command.EXIT, 0);
+        cmdExit = new Command("Р’С‹С…РѕРґ", Command.EXIT, 0);
         frmMain.addCommand(cmdExit);
 
-        cmdBack = new Command("Назад", Command.BACK,1); //общая для всех команда Back, возвращает в главное меню
-        cmdNext=new Command("Далее",Command.ITEM,0);
+        cmdBack = new Command("РќР°Р·Р°Рґ", Command.BACK,1); //РѕР±С‰Р°СЏ РґР»СЏ РІСЃРµС… РєРѕРјР°РЅРґР° Back, РІРѕР·РІСЂР°С‰Р°РµС‚ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ
+        cmdNext=new Command("Р”Р°Р»РµРµ",Command.ITEM,0);
         cmdOK = new Command("OK", Command.OK, 1);
-        cmdCancel = new Command("Назад", Command.CANCEL, 1);
+        cmdCancel = new Command("РќР°Р·Р°Рґ", Command.CANCEL, 1);
 
-        String dirList[]={"расход","доход"};
-        frmMoneyDirection=new List("Направление",List.EXCLUSIVE,dirList,null);
+        String dirList[]={"СЂР°СЃС…РѕРґ","РґРѕС…РѕРґ"};
+        frmMoneyDirection=new List("РќР°РїСЂР°РІР»РµРЅРёРµ",List.EXCLUSIVE,dirList,null);
         frmMoneyDirection.addCommand(cmdNext);
         frmMoneyDirection.addCommand(cmdBack);
         frmMoneyDirection.setCommandListener(this);
 
         frmMoney_Menu = new List("",List.IMPLICIT,MoneyMenuList,null);
-        frmMoney_Menu.setTitle("Операции");
+        frmMoney_Menu.setTitle("РћРїРµСЂР°С†РёРё");
         for (int i = 0; i < frmMoney_Menu.size(); i++) {
             frmMoney_Menu.setFont(i, big_style);
         }
@@ -122,7 +122,7 @@ public class Planary extends MIDlet implements CommandListener {
     private void ShowBalance(){
         int dohod,rashod,balance,temp;
         dohod=rashod=balance=temp=0;
-        Form frmBalance=new Form("Баланс");
+        Form frmBalance=new Form("Р‘Р°Р»Р°РЅСЃ");
         int count = PSH.GetCount(MoneyPos);
         if (count > 0) {
             strList = new String[count];
@@ -150,23 +150,23 @@ public class Planary extends MIDlet implements CommandListener {
 
         Font bold_styled = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_BOLD, Font.SIZE_MEDIUM);
 
-        StringItem si1 = new StringItem("","Баланс: ", StringItem.PLAIN);
+        StringItem si1 = new StringItem("","Р‘Р°Р»Р°РЅСЃ: ", StringItem.PLAIN);
         si1.setFont(bold_styled);
         frmBalance.append(si1);
         frmBalance.append(String.valueOf(balance));
-        frmBalance.append("руб.\n");
+        frmBalance.append("СЂСѓР±.\n");
 
-        StringItem si2 = new StringItem("", "Доходы: ", StringItem.PLAIN);
+        StringItem si2 = new StringItem("", "Р”РѕС…РѕРґС‹: ", StringItem.PLAIN);
         si2.setFont(bold_styled);
         frmBalance.append(si2);
         frmBalance.append(String.valueOf(dohod));
-        frmBalance.append("руб.\n");
+        frmBalance.append("СЂСѓР±.\n");
 
-        StringItem si3 = new StringItem("", "Расходы: ", StringItem.PLAIN);
+        StringItem si3 = new StringItem("", "Р Р°СЃС…РѕРґС‹: ", StringItem.PLAIN);
         si3.setFont(bold_styled);
         frmBalance.append(si3);
         frmBalance.append(String.valueOf(rashod));
-        frmBalance.append("руб.\n");
+        frmBalance.append("СЂСѓР±.\n");
 
         frmBalance.addCommand(cmdBack);
         frmBalance.setCommandListener(this);
@@ -174,7 +174,7 @@ public class Planary extends MIDlet implements CommandListener {
     }
 
     private void ShowArchive() {
-        frmArchive = new Form("Архив успехов");
+        frmArchive = new Form("РђСЂС…РёРІ СѓСЃРїРµС…РѕРІ");
 
         int count = PSH.GetCount(ArchivePos);
         if (count > 0) {
@@ -195,7 +195,7 @@ public class Planary extends MIDlet implements CommandListener {
                 d1 = clOne.get(Calendar.DAY_OF_MONTH);
                 y1 = clOne.get(Calendar.YEAR);
 
-                String strDate = new String(String.valueOf(d1) + " " + strMonths[m1] + " " + String.valueOf(y1) + " г. :");
+                String strDate = new String(String.valueOf(d1) + " " + strMonths[m1] + " " + String.valueOf(y1) + " Рі. :");
                 StringItem siOne = new StringItem("", strDate, StringItem.PLAIN);
                 //siOne.setLayout(StringItem.LAYOUT_CENTER);
                 siOne.setFont(bold_styled);
@@ -226,10 +226,10 @@ public class Planary extends MIDlet implements CommandListener {
 
             }
 
-            cmdClear = new Command("Очистить", Command.SCREEN, 0);
+            cmdClear = new Command("РћС‡РёСЃС‚РёС‚СЊ", Command.SCREEN, 0);
             frmArchive.addCommand(cmdClear);
         } else {
-            frmArchive.append("[Записей пока нет]");
+            frmArchive.append("[Р—Р°РїРёСЃРµР№ РїРѕРєР° РЅРµС‚]");
         }
         frmArchive.addCommand(cmdBack);
         frmArchive.setCommandListener(this);
@@ -270,7 +270,7 @@ public class Planary extends MIDlet implements CommandListener {
                 break;
             case 1:
                 isRashod=(frmMoneyDirection.getSelectedIndex()==0);
-                frmMoneyGetText=new TextBox("Сумма", (MoneyFormAction==MoneyFormAction_Add)?"":String.valueOf(Summa), 10, TextField.DECIMAL);
+                frmMoneyGetText=new TextBox("РЎСѓРјРјР°", (MoneyFormAction==MoneyFormAction_Add)?"":String.valueOf(Summa), 10, TextField.DECIMAL);
                 frmMoneyGetText.addCommand(cmdNext);
                 frmMoneyGetText.addCommand(cmdBack);
                 frmMoneyGetText.setCommandListener(this);
@@ -282,7 +282,7 @@ public class Planary extends MIDlet implements CommandListener {
                     Summa=Integer.parseInt(frmMoneyGetText.getString());
                 }
                 catch(java.lang.NumberFormatException e) {Summa=0;}
-                frmMoneyGetText=new TextBox("Примечание", TextOperation, 100, TextField.ANY);
+                frmMoneyGetText=new TextBox("РџСЂРёРјРµС‡Р°РЅРёРµ", TextOperation, 100, TextField.ANY);
                 frmMoneyGetText.addCommand(cmdOK);
                 frmMoneyGetText.addCommand(cmdBack);
                 frmMoneyGetText.setCommandListener(this);
@@ -424,7 +424,7 @@ public class Planary extends MIDlet implements CommandListener {
             if (pos!=MoneyPos)
             {
                 EditFormState = true;
-                ShowEditForm("Изменение задачи", frmTaskList.getString(GetFirstTrueIndex(SelectedArray)));
+                ShowEditForm("РР·РјРµРЅРµРЅРёРµ Р·Р°РґР°С‡Рё", frmTaskList.getString(GetFirstTrueIndex(SelectedArray)));
             }
             else
             {
@@ -493,7 +493,7 @@ public class Planary extends MIDlet implements CommandListener {
                     PSH.Save(toSave, -1, MoneyPos);
                 if (MoneyFormAction==MoneyFormAction_Edit)
                     PSH.Save(toSave, SelectedTaskID[0], MoneyPos);
-                Alert myAlert = new Alert("Выполнено", "Операция сохранена!", null, AlertType.INFO);
+                Alert myAlert = new Alert("Р’С‹РїРѕР»РЅРµРЅРѕ", "РћРїРµСЂР°С†РёСЏ СЃРѕС…СЂР°РЅРµРЅР°!", null, AlertType.INFO);
                 myAlert.setTimeout(1000);
                 myAlert.setCommandListener(this);
                 disp.setCurrent(myAlert);
@@ -505,7 +505,7 @@ public class Planary extends MIDlet implements CommandListener {
                 } else {
                     PSH.Save(frmNewTask.getString(), -1, pos);
                 }
-                Alert myAlert = new Alert("Выполнено", "Задача сохранена!", null, AlertType.INFO);
+                Alert myAlert = new Alert("Р’С‹РїРѕР»РЅРµРЅРѕ", "Р—Р°РґР°С‡Р° СЃРѕС…СЂР°РЅРµРЅР°!", null, AlertType.INFO);
                 myAlert.setTimeout(1000);
                 myAlert.setCommandListener(this);
                 disp.setCurrent(myAlert);
@@ -530,7 +530,7 @@ public class Planary extends MIDlet implements CommandListener {
 
     private void ShowNewTaskForm() {
         EditFormState = false;
-        ShowEditForm("Новая задача", "");
+        ShowEditForm("РќРѕРІР°СЏ Р·Р°РґР°С‡Р°", "");
     }
 
     private void ShowMoneyForm() {
@@ -555,7 +555,7 @@ public class Planary extends MIDlet implements CommandListener {
             if (pos==0)
             {
                 for(int i=0;i<count;i++)
-                    strList[i]=strList[i].substring(0,strList[i].indexOf("|"))+" ("+strList[i].substring(strList[i].indexOf("|")+1)+" руб.)";
+                    strList[i]=strList[i].substring(0,strList[i].indexOf("|"))+" ("+strList[i].substring(strList[i].indexOf("|")+1)+" СЂСѓР±.)";
             }
 
             frmTaskList = new List("", List.MULTIPLE, strList, null);
@@ -564,33 +564,33 @@ public class Planary extends MIDlet implements CommandListener {
 
             if (pos>0)
             {
-                cmdNew = new Command("Добавить...", Command.SCREEN, 6);
+                cmdNew = new Command("Р”РѕР±Р°РІРёС‚СЊ...", Command.SCREEN, 6);
                 frmTaskList.addCommand(cmdNew);
 
-                cmdEdit = new Command("Изменить...", Command.SCREEN, 5);
+                cmdEdit = new Command("РР·РјРµРЅРёС‚СЊ...", Command.SCREEN, 5);
                 frmTaskList.addCommand(cmdEdit);
 
-                cmdDelete = new Command("Удалить", Command.SCREEN, 4);
+                cmdDelete = new Command("РЈРґР°Р»РёС‚СЊ", Command.SCREEN, 4);
                 frmTaskList.addCommand(cmdDelete);
 
                 switch (pos) {
                     case 1:
-                        str1stCapt = "В планы на неделю";
-                        str2ndCapt = "В Хаос";
-                        strFormCapt = "Планы на день";
+                        str1stCapt = "Р’ РїР»Р°РЅС‹ РЅР° РЅРµРґРµР»СЋ";
+                        str2ndCapt = "Р’ РҐР°РѕСЃ";
+                        strFormCapt = "РџР»Р°РЅС‹ РЅР° РґРµРЅСЊ";
                         break;
                     case 2:
-                        str1stCapt = "В планы на день";
-                        str2ndCapt = "В Хаос";
-                        strFormCapt = "Планы на неделю";
+                        str1stCapt = "Р’ РїР»Р°РЅС‹ РЅР° РґРµРЅСЊ";
+                        str2ndCapt = "Р’ РҐР°РѕСЃ";
+                        strFormCapt = "РџР»Р°РЅС‹ РЅР° РЅРµРґРµР»СЋ";
                         break;
                     case 3:
-                        str1stCapt = "В планы на день";
-                        str2ndCapt = "В планы на неделю";
-                        strFormCapt = "Хаос";
+                        str1stCapt = "Р’ РїР»Р°РЅС‹ РЅР° РґРµРЅСЊ";
+                        str2ndCapt = "Р’ РїР»Р°РЅС‹ РЅР° РЅРµРґРµР»СЋ";
+                        strFormCapt = "РҐР°РѕСЃ";
                         break;
                     case 4:
-                        strFormCapt = "Мои цели";
+                        strFormCapt = "РњРѕРё С†РµР»Рё";
                         break;
                 }
 
@@ -602,26 +602,26 @@ public class Planary extends MIDlet implements CommandListener {
                 frmTaskList.addCommand(cmdMove2nd);
                 }
 
-                cmdDoneTask = new Command("В архив успехов", Command.SCREEN, 1);
+                cmdDoneTask = new Command("Р’ Р°СЂС…РёРІ СѓСЃРїРµС…РѕРІ", Command.SCREEN, 1);
                 frmTaskList.addCommand(cmdDoneTask);
             }
             else
             {
-                strFormCapt = "Операции";
+                strFormCapt = "РћРїРµСЂР°С†РёРё";
                 if (MoneyFormAction==MoneyFormAction_Edit){
-                    cmdEdit = new Command("Изменить...", Command.SCREEN, 0);
+                    cmdEdit = new Command("РР·РјРµРЅРёС‚СЊ...", Command.SCREEN, 0);
                     frmTaskList.addCommand(cmdEdit);
                 }
                 if (MoneyFormAction==MoneyFormAction_Delete){
-                    cmdDelete = new Command("Удалить", Command.SCREEN, 0);
+                    cmdDelete = new Command("РЈРґР°Р»РёС‚СЊ", Command.SCREEN, 0);
                     frmTaskList.addCommand(cmdDelete);
                 }
             }
         } else {
-            frmTaskList = new List("", List.IMPLICIT, new String[]{"[Список пуст]"}, null);
+            frmTaskList = new List("", List.IMPLICIT, new String[]{"[РЎРїРёСЃРѕРє РїСѓСЃС‚]"}, null);
             frmTaskList.addCommand(cmdBack);
 
-            cmdNew = new Command("Добавить...", Command.SCREEN, 0);
+            cmdNew = new Command("Р”РѕР±Р°РІРёС‚СЊ...", Command.SCREEN, 0);
             frmTaskList.addCommand(cmdNew);
         }
 
@@ -644,4 +644,3 @@ public class Planary extends MIDlet implements CommandListener {
         notifyDestroyed();
     }
 }
-
